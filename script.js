@@ -1,5 +1,3 @@
-//function to randomize computer choice with math.random
-
 function getComputerChoice() {
     let randomValue = Math.floor(Math.random() * 3);
 
@@ -14,26 +12,30 @@ function getComputerChoice() {
     }
 }
 
-//console.log(getComputerChoice(3));
-
-//function to get human choice with prompt
-// function to get human choice
+console.log(getComputerChoice(3));
+/*
 function getHumanChoice() {
-    let promptChoice = prompt("Rock, paper, or scissors?");
 
-        if(promptChoice.toLowerCase() === "rock") {
-            return "rock";
+const rock = document.createElement("button");
+    rock.classList.add("rock");
+    rock.classList.add("button");
+    rock.textContent = "rock";
 
-        } else if(promptChoice.toLowerCase() === "paper") {
-            return "paper" 
+const paper = document.createElement("button");
+    paper.classList.add("paper");
+    rock.classList.add("button");
+    paper.textContent = "paper";
 
-        } else if(promptChoice.toLowerCase() === "scissors") {
-            return "scissors";
-        
-        } else {
-            console.log("Invalid choice. Please try again.");
-        }
-}
+const scissors = document.createElement("button");
+    scissors.classList.add("scissors");
+    scissors.classList.add("button");
+    scissors.textContent = "scissors";
+
+const humanSelection = document.querySelectorAll("button");
+humanSelection.addEventListener("click", playRound);
+
+const displayResults =  document.createElement("div");
+
 
 //console.log(getHumanChoice());
 
@@ -68,6 +70,8 @@ function playGame() {
             console.log(`${computerChoice} beats ${humanChoice}. You lose.`);
         return computerScore++;
         }
+
+
     } 
 
     while (round < 5 ){
@@ -77,10 +81,15 @@ function playGame() {
     
         
     }
+
+    /*
     if (round = 5) {
         declareWinner();
     }
+*/
 
+
+/*
         function getInput() {
             let humanSelection = getHumanChoice();
             let computerSelection = getComputerChoice(3);
@@ -88,7 +97,7 @@ function playGame() {
             
         }
         
-
+/*
     function declareWinner() {
         if (humanScore > computerScore) {
             console.log(`Game over! Your score: ${humanScore} Computer score: ${computerScore}. You are the winner!`);
@@ -102,4 +111,4 @@ function playGame() {
 
 }
 
-playGame();
+playGame(); */
