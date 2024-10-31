@@ -43,8 +43,10 @@ const computer = document.createElement("div");
 
 const winner = document.createElement("div");
 
-const scores = document.createElement("div");
-displayResults.appendChild(scores);
+const humanScoreDisplay = document.createElement("div");
+const computerScoreDisplay = document.createElement("div");
+
+
 
 //create playRound function
 
@@ -54,27 +56,31 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === computerChoice) {
         winner.textContent = `It's a draw. Play again.`;
-        humanScore.textContent = `Your score: ${humanScore}`;
-        computerScore.textContent = `Computer score: ${computerScore}`;
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 
     }
 
     else if (humanChoice === 'rock' && computerChoice === 'scissors' || humanChoice === 'paper' && computerChoice === 'rock' || humanChoice === 'scissors' && computerChoice === 'paper') {
         winner.textContent = `${humanChoice} beats ${computerChoice}. You win!`;
-        humanScore.textContent = `Your score: ${humanScore++}`;
-        computerScore.textContent = `Computer score: ${computerScore}`;
+        humanScoreDisplay.textContent = `Your score: ${humanScore++}`;
+        computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
     }   
 
     else { 
         winner.textContent = `${computerChoice} beats ${humanChoice}. You lose.`;
-        humanScore.textContent = `Your score: ${humanScore}`;
-        computerScore.textContent = `Computer score: ${computerScore++}`;
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Computer score: ${computerScore++}`;
     }
 } 
 
 let humanScore = 0;
 let computerScore = 0
-let play = "";
+
+
+
+
+function playGame() {
 
 if ((humanScore < 5) || (computerScore < 5)) {
     rock.addEventListener('click', () => {
@@ -84,6 +90,11 @@ if ((humanScore < 5) || (computerScore < 5)) {
             computer.textContent = `Computer: ${computerChoice}`;
         displayResults.appendChild(winner);
             playRound("rock", computerChoice);
+        displayResults.appendChild(humanScoreDisplay);
+        displayResults.appendChild(computerScoreDisplay);
+           
+
+    
         
     });
 
@@ -94,6 +105,10 @@ if ((humanScore < 5) || (computerScore < 5)) {
             computer.textContent = `Computer: ${computerChoice}`;
         displayResults.appendChild(winner);
             playRound("paper", computerChoice);
+            displayResults.appendChild(humanScoreDisplay);
+        displayResults.appendChild(computerScoreDisplay);
+            
+            
     });
 
     scissors.addEventListener('click', () => {
@@ -103,6 +118,10 @@ if ((humanScore < 5) || (computerScore < 5)) {
             computer.textContent = `Computer: ${computerChoice}`;
         displayResults.appendChild(winner);
             playRound("scissors", computerChoice);
+        displayResults.appendChild(humanScoreDisplay);
+        displayResults.appendChild(computerScoreDisplay);
+    
+            
 
     });
 
@@ -110,6 +129,7 @@ if ((humanScore < 5) || (computerScore < 5)) {
     buttons.remove();
     displayResults.remove();
     declareWinner();
+}
 }
 
 //create divs for final results div
@@ -134,3 +154,5 @@ function declareWinner() {
         finalResults.appendChild(replay);
 }
 }
+
+playGame();
