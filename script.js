@@ -37,6 +37,9 @@ function getComputerChoice() {
 
 //create variables for display div
 
+const roundCount = document.createElement("div");
+
+
 const human = document.createElement("div");
 
 const computer = document.createElement("div");
@@ -54,7 +57,7 @@ let computerChoice = getComputerChoice(3);
 
 function playRound(humanChoice, computerChoice) {
 
-    if (humanChoice === computerChoice) {
+    if (humanChoice === computerChoice) { 
         winner.textContent = `It's a draw. Play again.`;
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
@@ -74,16 +77,20 @@ function playRound(humanChoice, computerChoice) {
     }
 } 
 
+let round = 1;
+
 let humanScore = 0;
 let computerScore = 0
 
 
-
+function endRound() {}
 
 function playGame() {
 
 if ((humanScore < 5) || (computerScore < 5)) {
     rock.addEventListener('click', () => {
+        roundCount.textContent = `Round: ${round++}`;
+        displayResults.appendChild(roundCount);
         displayResults.appendChild(human);
             human.textContent = `You: rock`;
         displayResults.appendChild(computer);
@@ -92,6 +99,8 @@ if ((humanScore < 5) || (computerScore < 5)) {
             playRound("rock", computerChoice);
         displayResults.appendChild(humanScoreDisplay);
         displayResults.appendChild(computerScoreDisplay);
+    
+
            
 
     
@@ -99,6 +108,8 @@ if ((humanScore < 5) || (computerScore < 5)) {
     });
 
     paper.addEventListener('click', () => {
+        roundCount.textContent = `Round: ${round++}`;
+        displayResults.appendChild(roundCount);
         displayResults.appendChild(human);
             human.textContent = `You: paper`;
         displayResults.appendChild(computer);
@@ -107,11 +118,14 @@ if ((humanScore < 5) || (computerScore < 5)) {
             playRound("paper", computerChoice);
             displayResults.appendChild(humanScoreDisplay);
         displayResults.appendChild(computerScoreDisplay);
+        
             
             
     });
 
     scissors.addEventListener('click', () => {
+        roundCount.textContent = `Round: ${round++}`;
+        displayResults.appendChild(roundCount);
         displayResults.appendChild(human);
             human.textContent = `You: scissors`;
         displayResults.appendChild(computer);
@@ -121,9 +135,11 @@ if ((humanScore < 5) || (computerScore < 5)) {
         displayResults.appendChild(humanScoreDisplay);
         displayResults.appendChild(computerScoreDisplay);
     
+    
             
 
     });
+
 
 } else {
     buttons.remove();
