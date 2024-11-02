@@ -1,8 +1,5 @@
 //round count div
-
-
 let round = 1;
-
 const roundCount = document.createElement("div");
     document.body.appendChild(roundCount);
         roundCount.textContent = `ROUND: ${round}`;
@@ -10,7 +7,13 @@ const roundCount = document.createElement("div");
         roundCount.style.padding = "20px";
         roundCount.style.fontFamily = "courier";
         roundCount.style.fontSize = "34px";
-
+//human div
+const human = document.createElement("div");
+    document.body.appendChild(human);
+    human.textContent = "You:";
+    human.style.justifySelf = "center";
+    human.style.fontSize = "34px";
+    human.style.fontFamily = "courier";
 
 //create button options
 const buttonContainer = document.createElement("div");
@@ -20,17 +23,17 @@ const buttonContainer = document.createElement("div");
 
     const rockPic = document.createElement("img");
         rockPic.src = "rock-576669_1280.png";
-        rockPic.style.width = "200px";
-        rockPic.style.height = "200px";
+        rockPic.style.width = "150px";
+        rockPic.style.height = "150px";
 
     const rock = document.createElement("button");
         rock.setAttribute("id", "rock");
         rock.appendChild(rockPic); 
         rock.style.backgroundImage = "rockPic";
         buttonContainer.appendChild(rock);
-        rock.style.margin = "20px";
-        rock.style.width = "200px";
-        rock.style.height = "200px";
+        rock.style.margin = "50px";
+        rock.style.width = "150px";
+        rock.style.height = "150px";
         rock.style.border = "none";
         rock.style.backgroundColor = "white";
         rock.addEventListener('mouseover', () => {
@@ -40,19 +43,23 @@ const buttonContainer = document.createElement("div");
             rock.style.transform = '';
         })
 
+        rock.addEventListener('click', getComputerChoice);
+       
+
+
     const paperPic = document.createElement("img");
         paperPic.src = "paper-23652_1280.png";
-        paperPic.style.width = "200px";
-        paperPic.style.height = "200px";
+        paperPic.style.width = "150px";
+        paperPic.style.height = "150px";
 
     const paper = document.createElement("button");
         paper.setAttribute("id", "paper");
         paper.appendChild(paperPic);
         paper.style.backgroundImage = "paperPic";
         buttonContainer.appendChild(paper);
-        paper.style.margin = "20px";
-        paper.style.width = "200px";
-        paper.style.height = "200px";
+        paper.style.margin = "50px";
+        paper.style.width = "150px";
+        paper.style.height = "150px";
         paper.style.border = "none";
         paper.style.backgroundColor = "white";
         paper.addEventListener('mouseover', () => {
@@ -61,11 +68,12 @@ const buttonContainer = document.createElement("div");
         paper.addEventListener('mouseout', () => {
             paper.style.transform = '';
         })
+        paper.addEventListener('click', getComputerChoice);
 
     const scissorsPic = document.createElement("img");
         scissorsPic.src = "scissors-2026687_1280.png";
-        scissorsPic.style.width = "200px";
-        scissorsPic.style.height = "200px";
+        scissorsPic.style.width = "150px";
+        scissorsPic.style.height = "150px";
 
  
     const scissors = document.createElement("button");
@@ -73,9 +81,9 @@ const buttonContainer = document.createElement("div");
         scissors.appendChild(scissorsPic);
         scissors.style.backgroundImage = "scissorsPic";
         buttonContainer.appendChild(scissors);
-        scissors.style.margin = "20px";
-        scissors.style.width = "200px";
-        scissors.style.height = "200px";
+        scissors.style.margin = "50px";
+        scissors.style.width = "150px";
+        scissors.style.height = "150px";
         scissors.style.border = "none";
         scissors.style.backgroundColor = "white";
         scissors.addEventListener('mouseover', () => {
@@ -85,13 +93,46 @@ const buttonContainer = document.createElement("div");
             scissors.style.transform = '';
         })
 
-//create Round Results div
-const displayResults = document.createElement("div");
-    document.body.appendChild(displayResults);
 
-const human = document.createElement("div");
+
 const computer = document.createElement("div");
+document.body.appendChild(computer);
+computer.textContent = "Computer:";
+computer.style.justifySelf = "center";
+computer.style.fontSize = "34px";
+computer.style.fontFamily = "courier";
+
+const computerOptions = document.createElement("div");
+document.body.appendChild(computerOptions);
+computerOptions.style.justifySelf = "center";
+
+const computerRockPic = document.createElement("img");
+computerRockPic.src = "rock-576669_1280.png";
+computerOptions.appendChild(computerRockPic);
+computerRockPic.style.width = "150px";
+computerRockPic.style.height = "150px";
+computerRockPic.style.margin = "50px";
+
+const computerPaperPic = document.createElement("img");
+computerPaperPic.src = "paper-23652_1280.png";
+computerOptions.appendChild(computerPaperPic);
+computerPaperPic.style.width = "150px";
+computerPaperPic.style.height = "150px";
+computerPaperPic.style.margin = "50px";
+
+const computerScissorsPic = document.createElement("img");
+computerScissorsPic.src = "scissors-2026687_1280.png";
+computerOptions.appendChild(computerScissorsPic);
+computerScissorsPic.style.width = "150px";
+computerScissorsPic.style.height = "150px";
+computerScissorsPic.style.margin = "50px";
+
+
 const winner = document.createElement("div");
+document.body.appendChild(winner);
+winner.style.justifySelf = "center";
+winner.style.fontSize = "34px";
+winner.style.fontFamily = "courier";
 
 
 //create computer choice function 
@@ -100,14 +141,23 @@ function getComputerChoice() {
     let randomValue = Math.floor(Math.random() * 3);
 
     if(randomValue === 0) {
+        computerRockPic.style.transform = "scale(1.5)";
+        computerPaperPic.style.transform = "scale(.5)";
+        computerScissorsPic.style.transform = "scale(.5)";
         return "rock";
 
     } else if(randomValue === 1) {
+        computerRockPic.style.transform = "scale(.5)";
+        computerPaperPic.style.transform = "scale(1.5)";
+        computerScissorsPic.style.transform = "scale(.5)";
         return "paper";
 
     } else {
+        computerRockPic.style.transform = "scale(.5)";
+        computerPaperPic.style.transform = "scale(.5)";
+        computerScissorsPic.style.transform = "scale(1.5)";
         return "scissors";
-    }
+    } 
 }
 
 //create playRound function
@@ -115,6 +165,7 @@ function getComputerChoice() {
 let computerChoice = getComputerChoice(3);
 
 function playRound(humanChoice, computerChoice) {
+
 
     if (humanChoice === computerChoice) { 
         winner.textContent = `It's a draw. Play again.`;
@@ -150,48 +201,37 @@ const scores = document.createElement("div");
 
 
 function newRound() {
-    displayResults.remove(human);
-    displayResults.remove(computer);
 
-    
 }
 
 function playGame() {
 
 if ((humanScore < 5) || (computerScore < 5)) {
     rock.addEventListener('click', () => {
-        displayResults.appendChild(human);
-            human.textContent = `You: rock`;
-        displayResults.appendChild(computer);
-            computer.textContent = `Computer: ${computerChoice}`;
-        displayResults.appendChild(winner);
-            playRound("rock", computerChoice);
+        round++
+        rock.style.transform = "scale(1.5)";
+        paper.style.transform = "scale(.5)";
+        scissors.style.transform = "scale(.5)";     
+        playRound("rock", computerChoice);
         
         
     });
 
     paper.addEventListener('click', () => {
-        roundCount.textContent = `Round: ${round++}`;
-        displayResults.appendChild(human);
-            human.textContent = `You: paper`;
-        displayResults.appendChild(computer);
-            computer.textContent = `Computer: ${computerChoice}`;
-        displayResults.appendChild(winner);
-            playRound("paper", computerChoice);
-       
-           
+        round++
+        paper.style.transform = "scale(1.5)";
+        rock.style.transform = "scale(.5)";
+        scissors.style.transform = "scale(.5)";
+        playRound("paper", computerChoice);    
             
     });
 
     scissors.addEventListener('click', () => {
-        roundCount.textContent = `Round: ${round++}`;
-        displayResults.appendChild(human);
-            human.textContent = `You: scissors`;
-        displayResults.appendChild(computer);
-            computer.textContent = `Computer: ${computerChoice}`;
-        displayResults.appendChild(winner);
-            playRound("scissors", computerChoice);
-     
+        round++;
+        rock.style.transform = "scale(.5)";
+        paper.style.transform = "scale(.5)";
+        scissors.style.transform = "scale(1.5)";
+        playRound("scissors", computerChoice);
 
     });
 
