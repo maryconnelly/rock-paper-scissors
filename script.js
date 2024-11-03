@@ -11,20 +11,21 @@ const roundCount = document.createElement("div");
         roundCount.style.padding = "20px";
         roundCount.style.fontFamily = "courier";
         roundCount.style.fontSize = "34px";
-        roundCount.style.backgroundColor = "#E5625E";
+        roundCount.style.backgroundColor = "#C16E70";
+        roundCount.style.color = "white";
 
 
 //human div
-const human = document.createElement("div");
-    document.body.appendChild(human);
-        human.textContent = "YOU";
-        human.style.fontWeight= "bold";
-        human.style.padding = "10px";
-        human.style.textAlign = "center";
-        human.style.justifySelf = "stretch";
-        human.style.fontSize = "28px";
-        human.style.fontFamily = "courier";
-        human.style.backgroundColor = "#E5E059";
+    const human = document.createElement("div");
+        document.body.appendChild(human);
+            human.textContent = "YOU";
+            human.style.fontWeight= "bold";
+            human.style.padding = "10px";
+            human.style.textAlign = "center";
+            human.style.justifySelf = "stretch";
+            human.style.fontSize = "28px";
+            human.style.fontFamily = "courier";
+            human.style.backgroundColor = "#F2F3D9";
 
     const humanScoreDisplay = document.createElement("div");
         document.body.appendChild(humanScoreDisplay);
@@ -35,15 +36,15 @@ const human = document.createElement("div");
             humanScoreDisplay.style.justifySelf = "stretch";
             humanScoreDisplay.style.fontSize = "28px";
             humanScoreDisplay.style.fontFamily = "courier";
-            humanScoreDisplay.style.backgroundColor = "#E5E059";
+            humanScoreDisplay.style.backgroundColor = "#F2F3D9";
 
 //create button options
-const buttonContainer = document.createElement("div");
-    document.body.appendChild(buttonContainer);
-        buttonContainer.style.display = "flex";
-        buttonContainer.style.justifySelf = "stretch";
-        buttonContainer.style.justifyContent = "center";
-        buttonContainer.style.backgroundColor = "#E5E059";
+    const buttonContainer = document.createElement("div");
+        document.body.appendChild(buttonContainer);
+            buttonContainer.style.display = "flex";
+            buttonContainer.style.justifySelf = "stretch";
+            buttonContainer.style.justifyContent = "center";
+            buttonContainer.style.backgroundColor = "#F2F3D9";
 
     const rockPic = document.createElement("img");
         rockPic.src = "rock-576669_1280.png";
@@ -59,7 +60,7 @@ const buttonContainer = document.createElement("div");
         rock.style.width = "100px";
         rock.style.height = "100px";
         rock.style.border = "none";
-        rock.style.backgroundColor = "#E5E059";
+        rock.style.backgroundColor = "#F2F3D9";
         rock.addEventListener('mouseover', () => {
             rock.style.transform = 'scale(1.1)';
         })
@@ -85,7 +86,7 @@ const buttonContainer = document.createElement("div");
         paper.style.width = "100px";
         paper.style.height = "100px";
         paper.style.border = "none";
-        paper.style.backgroundColor = "#E5E059";
+        paper.style.backgroundColor = "#F2F3D9";
         paper.addEventListener('mouseover', () => {
             paper.style.transform = 'scale(1.1)';
         })
@@ -109,7 +110,7 @@ const buttonContainer = document.createElement("div");
         scissors.style.width = "100px";
         scissors.style.height = "100px";
         scissors.style.border = "none";
-        scissors.style.backgroundColor = "#E5E059";
+        scissors.style.backgroundColor = "#F2F3D9";
         scissors.addEventListener('mouseover', () => {
             scissors.style.transform = 'scale(1.1)';
         })
@@ -119,68 +120,70 @@ const buttonContainer = document.createElement("div");
 
         scissors.addEventListener('click', getComputerChoice);
 
-const winner = document.createElement("div");
-    document.body.appendChild(winner);
-        winner.style.display = "flex";
-        winner.style.justifySelf = "stretch";
-        winner.style.justifyContent = "center";
-        winner.style.alignItems = "center";
-       // winner.style.backgroundColor = "";
-        winner.style.fontSize = "28px";
-        winner.style.fontFamily = "courier";
-        winner.style.height = "50px";
+    const winner = document.createElement("div");
+        document.body.appendChild(winner);
+            winner.style.display = "flex";
+            winner.style.justifySelf = "stretch";
+            winner.style.justifyContent = "center";
+            winner.style.alignItems = "center";
+        // winner.style.backgroundColor = "";
+            winner.style.fontSize = "28px";
+            winner.style.fontFamily = "courier";
+            winner.style.height = "50px";
+            winner.style.backgroundColor = "#C16E70";
+            winner.style.color = "white";
 
 
-const computer = document.createElement("div");
-    document.body.appendChild(computer);
-        computer.textContent = "COMPUTER";
-        computer.style.padding = "10px";
-        computer.style.justifySelf = "stretch";
-        computer.style.textAlign = "center";
-        computer.style.fontSize = "28px";
-        computer.style.fontFamily = "courier";
-        computer.style.backgroundColor = "#BDD358";
-        computer.style.fontWeight = "bold";
+    const computer = document.createElement("div");
+        document.body.appendChild(computer);
+            computer.textContent = "COMPUTER";
+            computer.style.padding = "10px";
+            computer.style.justifySelf = "stretch";
+            computer.style.textAlign = "center";
+            computer.style.fontSize = "28px";
+            computer.style.fontFamily = "courier";
+            computer.style.backgroundColor = "#DC9E82";
+            computer.style.fontWeight = "bold";
 
-const computerScoreDisplay = document.createElement("div");
-    document.body.appendChild(computerScoreDisplay);
-        computerScoreDisplay.textContent = `Score: ${computerScore}`;
-        computerScoreDisplay.style.padding = "10px";
-        computerScoreDisplay.style.justifySelf = "stretch";
-        computerScoreDisplay.style.textAlign = "center";
-        computerScoreDisplay.style.fontSize = "28px";
-        computerScoreDisplay.style.fontFamily = "courier";
-        computerScoreDisplay.style.backgroundColor = "#BDD358";
-        computerScoreDisplay.style.fontWeight = "bold";
+    const computerScoreDisplay = document.createElement("div");
+        document.body.appendChild(computerScoreDisplay);
+            computerScoreDisplay.textContent = `Score: ${computerScore}`;
+            computerScoreDisplay.style.padding = "10px";
+            computerScoreDisplay.style.justifySelf = "stretch";
+            computerScoreDisplay.style.textAlign = "center";
+            computerScoreDisplay.style.fontSize = "28px";
+            computerScoreDisplay.style.fontFamily = "courier";
+            computerScoreDisplay.style.backgroundColor = "#DC9E82";
+            computerScoreDisplay.style.fontWeight = "bold";
 
-const computerOptions = document.createElement("div");
-    document.body.appendChild(computerOptions);
-        computerOptions.style.display = "flex";
-        computerOptions.style.justifySelf = "stretch";
-        computerOptions.style.justifyContent = "center";
-        computerOptions.style.backgroundColor = "#BDD358"
+    const computerOptions = document.createElement("div");
+        document.body.appendChild(computerOptions);
+            computerOptions.style.display = "flex";
+            computerOptions.style.justifySelf = "stretch";
+            computerOptions.style.justifyContent = "center";
+            computerOptions.style.backgroundColor = "#DC9E82"
 
 
-const computerRockPic = document.createElement("img");
-    computerRockPic.src = "rock-576669_1280.png";
-    computerOptions.appendChild(computerRockPic);
-    computerRockPic.style.width = "100px";
-    computerRockPic.style.height = "100px";
-    computerRockPic.style.margin = "50px";
+    const computerRockPic = document.createElement("img");
+        computerRockPic.src = "rock-576669_1280.png";
+        computerOptions.appendChild(computerRockPic);
+        computerRockPic.style.width = "100px";
+        computerRockPic.style.height = "100px";
+        computerRockPic.style.margin = "50px";
 
-const computerPaperPic = document.createElement("img");
-    computerPaperPic.src = "paper-23652_1280.png";
-    computerOptions.appendChild(computerPaperPic);
-    computerPaperPic.style.width = "100px";
-    computerPaperPic.style.height = "100px";
-    computerPaperPic.style.margin = "50px";
+    const computerPaperPic = document.createElement("img");
+        computerPaperPic.src = "paper-23652_1280.png";
+        computerOptions.appendChild(computerPaperPic);
+        computerPaperPic.style.width = "100px";
+        computerPaperPic.style.height = "100px";
+        computerPaperPic.style.margin = "50px";
 
-const computerScissorsPic = document.createElement("img");
-    computerScissorsPic.src = "scissors-2026687_1280.png";
-    computerOptions.appendChild(computerScissorsPic);
-    computerScissorsPic.style.width = "100px";
-    computerScissorsPic.style.height = "100px";
-    computerScissorsPic.style.margin = "50px";
+    const computerScissorsPic = document.createElement("img");
+        computerScissorsPic.src = "scissors-2026687_1280.png";
+        computerOptions.appendChild(computerScissorsPic);
+        computerScissorsPic.style.width = "100px";
+        computerScissorsPic.style.height = "100px";
+        computerScissorsPic.style.margin = "50px";
 
 
 //create computer choice function 
@@ -218,65 +221,63 @@ function playRound(humanChoice, computerChoice) {
 
     else if (humanChoice === 'rock' && computerChoice === 'scissors' || humanChoice === 'paper' && computerChoice === 'rock' || humanChoice === 'scissors' && computerChoice === 'paper') {
         winner.textContent = `${humanChoice} beats ${computerChoice}. You win!`;
-        humanScore++;
+        humanScore+= 1;
     }   
 
     else { 
         winner.textContent = `${computerChoice} beats ${humanChoice}. You lose.`;
-        computerScore++;
+        computerScore+= 1;
     }
 
 } 
 
-function newRound() {
-
-}
-
 function playGame() {
 
-if ((humanScore < 5) || (computerScore < 5)) {
-    rock.addEventListener('click', () => {
-        roundCount.querySelector("round");
-        round++;
-        rock.style.transform = "scale(1.5)";
-        paper.style.transform = "scale(.5)";
-        scissors.style.transform = "scale(.5)";     
-        let computerChoice = getComputerChoice(3);
-        playRound("rock", computerChoice);
-        
-        
+    if ((humanScore < 5) || (computerScore < 5)) {
+
+        rock.addEventListener('click', () => {
+            rock.style.transform = "scale(1.5)";
+            paper.style.transform = "scale(.5)";
+            scissors.style.transform = "scale(.5)";     
+            let computerChoice = getComputerChoice(3);
+            playRound("rock", computerChoice);
     });
 
-    paper.addEventListener('click', () => {
-        roundCount.querySelector("round");
-        round++;
-        paper.style.transform = "scale(1.5)";
-        rock.style.transform = "scale(.5)";
-        scissors.style.transform = "scale(.5)";
-        let computerChoice = getComputerChoice(3);
-        playRound("paper", computerChoice);    
-            
-    });
+        paper.addEventListener('click', () => {
+            paper.style.transform = "scale(1.5)";
+            rock.style.transform = "scale(.5)";
+            scissors.style.transform = "scale(.5)";
+            let computerChoice = getComputerChoice(3);
+            playRound("paper", computerChoice);     
+        });
 
-    scissors.addEventListener('click', () => {
-        roundCount.querySelector("round");
-        round++;
-        rock.style.transform = "scale(.5)";
-        paper.style.transform = "scale(.5)";
-        scissors.style.transform = "scale(1.5)";
-        let computerChoice = getComputerChoice(3);
-        playRound("scissors", computerChoice);
+        scissors.addEventListener('click', () => {
+            rock.style.transform = "scale(.5)";
+            paper.style.transform = "scale(.5)";
+            scissors.style.transform = "scale(1.5)";
+            let computerChoice = getComputerChoice(3);
+            playRound("scissors", computerChoice);
 
-    });
+         });
 
 
 
-} else {
-    buttons.remove();
-    displayResults.remove();
-    declareWinner();
+    } else {
+        buttons.remove();
+        displayResults.remove();
+        declareWinner();
+    }
 }
-}
+
+/*function newRound() {
+
+    round++;
+    rock.style.transform = "";
+    paper.style.transform = "";
+    scissors.style.transform = "";
+    winner.textContent = "";
+
+} */
 
 //create divs for final results div
 const finalResults = document.createElement("div");
