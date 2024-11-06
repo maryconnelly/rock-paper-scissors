@@ -5,12 +5,16 @@ let computerScore = 0;
 
 const roundCount = document.createElement("div");
     document.body.appendChild(roundCount);
+    roundCount.textContent = "ROUND";
+        roundCount.style.display = "flex";    
         roundCount.style.justifySelf = "stretch";
-        roundCount.style.textAlign = "center";
-        roundCount.style.padding = "20px";
+        roundCount.style.justifyContent = "center";        
+        roundCount.style.alignItems = "center";
+        roundCount.style.padding = "10px";
         roundCount.style.fontFamily = "courier";
-        roundCount.style.fontSize = "34px";
-        roundCount.style.backgroundColor = "#C16E70";
+        roundCount.style.fontSize = "28px";
+        roundCount.style.height = "50px";
+        roundCount.style.backgroundColor = "#2D3142";
         roundCount.style.color = "white";
 
 
@@ -24,25 +28,27 @@ const roundCount = document.createElement("div");
             human.style.justifySelf = "stretch";
             human.style.fontSize = "28px";
             human.style.fontFamily = "courier";
-            human.style.backgroundColor = "#F2F3D9";
+            human.style.backgroundColor = "white";
 
     const humanScoreDisplay = document.createElement("div");
         document.body.appendChild(humanScoreDisplay);
+            humanScoreDisplay.textContent = "SCORE:";
             humanScoreDisplay.style.fontWeight= "bold";
             humanScoreDisplay.style.padding = "10px";
             humanScoreDisplay.style.textAlign = "center";
             humanScoreDisplay.style.justifySelf = "stretch";
             humanScoreDisplay.style.fontSize = "28px";
             humanScoreDisplay.style.fontFamily = "courier";
-            humanScoreDisplay.style.backgroundColor = "#F2F3D9";
+            humanScoreDisplay.style.backgroundColor = "white";
 
 //create button options
     const buttonContainer = document.createElement("div");
         document.body.appendChild(buttonContainer);
             buttonContainer.style.display = "flex";
             buttonContainer.style.justifySelf = "stretch";
+            buttonContainer.style.height = "200px";
             buttonContainer.style.justifyContent = "center";
-            buttonContainer.style.backgroundColor = "#F2F3D9";
+            buttonContainer.style.backgroundColor = "white";
 
     const rockPic = document.createElement("img");
         rockPic.src = "rock-576669_1280.png";
@@ -58,7 +64,7 @@ const roundCount = document.createElement("div");
         rock.style.width = "100px";
         rock.style.height = "100px";
         rock.style.border = "none";
-        rock.style.backgroundColor = "#F2F3D9";
+        rock.style.backgroundColor = "white";
         rock.addEventListener('mouseover', () => {
             rock.style.transform = 'scale(1.1)';
         })
@@ -82,7 +88,7 @@ const roundCount = document.createElement("div");
         paper.style.width = "100px";
         paper.style.height = "100px";
         paper.style.border = "none";
-        paper.style.backgroundColor = "#F2F3D9";
+        paper.style.backgroundColor = "white";
         paper.addEventListener('mouseover', () => {
             paper.style.transform = 'scale(1.1)';
         })
@@ -106,7 +112,7 @@ const roundCount = document.createElement("div");
         scissors.style.width = "100px";
         scissors.style.height = "100px";
         scissors.style.border = "none";
-        scissors.style.backgroundColor = "#F2F3D9";
+        scissors.style.backgroundColor = "white";
         scissors.addEventListener('mouseover', () => {
             scissors.style.transform = 'scale(1.1)';
         })
@@ -123,8 +129,8 @@ const roundCount = document.createElement("div");
         // winner.style.backgroundColor = "";
             winner.style.fontSize = "28px";
             winner.style.fontFamily = "courier";
-            winner.style.height = "50px";
-            winner.style.backgroundColor = "#C16E70";
+            winner.style.height = "80px";
+            winner.style.backgroundColor = "#2D3142";
             winner.style.color = "white";
 
 
@@ -136,25 +142,27 @@ const roundCount = document.createElement("div");
             computer.style.textAlign = "center";
             computer.style.fontSize = "28px";
             computer.style.fontFamily = "courier";
-            computer.style.backgroundColor = "#DC9E82";
+            computer.style.backgroundColor = "#BFC0C0";
             computer.style.fontWeight = "bold";
 
     const computerScoreDisplay = document.createElement("div");
         document.body.appendChild(computerScoreDisplay);
+            computerScoreDisplay.textContent = "SCORE:";
             computerScoreDisplay.style.padding = "10px";
             computerScoreDisplay.style.justifySelf = "stretch";
             computerScoreDisplay.style.textAlign = "center";
             computerScoreDisplay.style.fontSize = "28px";
             computerScoreDisplay.style.fontFamily = "courier";
-            computerScoreDisplay.style.backgroundColor = "#DC9E82";
+            computerScoreDisplay.style.backgroundColor = "#BFC0C0";
             computerScoreDisplay.style.fontWeight = "bold";
 
     const computerOptions = document.createElement("div");
         document.body.appendChild(computerOptions);
             computerOptions.style.display = "flex";
             computerOptions.style.justifySelf = "stretch";
+            computerOptions.style.height = "200px"
             computerOptions.style.justifyContent = "center";
-            computerOptions.style.backgroundColor = "#DC9E82"
+            computerOptions.style.backgroundColor = "#BFC0C0"
 
 
     const computerRockPic = document.createElement("img");
@@ -188,19 +196,19 @@ function getComputerChoice() {
         computerRockPic.style.transform = "scale(1.5)";
         computerPaperPic.style.transform = "scale(.5)";
         computerScissorsPic.style.transform = "scale(.5)";
-        return "rock";
+        return "ROCK";
 
     } else if(randomValue === 1) {
         computerRockPic.style.transform = "scale(.5)";
         computerPaperPic.style.transform = "scale(1.5)";
         computerScissorsPic.style.transform = "scale(.5)";
-        return "paper";
+        return "PAPER";
 
     } else {
         computerRockPic.style.transform = "scale(.5)";
         computerPaperPic.style.transform = "scale(.5)";
         computerScissorsPic.style.transform = "scale(1.5)";
-        return "scissors";
+        return "SCISSORS";
     } 
 }
 
@@ -208,91 +216,139 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === computerChoice) { 
-        winner.textContent = `It's a draw. Play again.`;
+        winner.textContent = `IT'S A DRAW. PLAY AGAIN.`;
         round++;
         roundCount.textContent = `ROUND ${round}`;
     }
 
-    else if (humanChoice === 'rock' && computerChoice === 'scissors' || 
-        humanChoice === 'paper' && computerChoice === 'rock' || 
-        humanChoice === 'scissors' && computerChoice === 'paper') 
+    else if (humanChoice === 'ROCK' && computerChoice === 'SCISSORS' || 
+        humanChoice === 'PAPER' && computerChoice === 'ROCK' || 
+        humanChoice === 'SCISSORS' && computerChoice === 'PAPER') 
     {
-        winner.textContent = `${humanChoice} beats ${computerChoice}. You win!`;
+        winner.textContent = `${humanChoice} BEATS ${computerChoice}. YOU WIN!`;
         humanScore++;
-        humanScoreDisplay.textContent = `Score: ${humanScore}`;
-        computerScoreDisplay.textContent = `Score: ${computerScore}`;
+        humanScoreDisplay.textContent = `SCORE: ${humanScore}`;
+        computerScoreDisplay.textContent = `SCORE: ${computerScore}`;
         round++;
         roundCount.textContent = `ROUND ${round}`;
     
     }   
 
     else { 
-        winner.textContent = `${computerChoice} beats ${humanChoice}. You lose.`;
+        winner.textContent = `${computerChoice} BEATS ${humanChoice}. YOU LOSE.`;
         computerScore++;
-        humanScoreDisplay.textContent = `Score: ${humanScore}`;
-        computerScoreDisplay.textContent = `Score: ${computerScore}`;
+        humanScoreDisplay.textContent = `SCORE: ${humanScore}`;
+        computerScoreDisplay.textContent = `SCORE: ${computerScore}`;
         round++;
         roundCount.textContent = `ROUND ${round}`;
     }
 
 } 
 
-function playGame() {
-        rock.addEventListener('click', () => {
-            
-            roundCount.textContent = `ROUND ${round}`;
-            rock.style.transform = "scale(1.5)";
-            paper.style.transform = "scale(.5)";
-            scissors.style.transform = "scale(.5)";     
-            let computerChoice = getComputerChoice();
-            playRound("rock", computerChoice);
-    });
-
-        paper.addEventListener('click', () => {
-            paper.style.transform = "scale(1.5)";
-            rock.style.transform = "scale(.5)";
-            scissors.style.transform = "scale(.5)";
-            let computerChoice = getComputerChoice();
-            playRound("paper", computerChoice);     
-        });
-
-        scissors.addEventListener('click', () => {
-            rock.style.transform = "scale(.5)";
-            paper.style.transform = "scale(.5)";
-            scissors.style.transform = "scale(1.5)";
-            let computerChoice = getComputerChoice();
-            playRound("scissors", computerChoice);
-
-         });
-
-        if (humanScore === 5 || computerScore === 5) {
-            declareWinner();
-
-        };
-
-//create divs for final results div
-const finalResults = document.createElement("div");
-    document.body.appendChild(finalResults);
-
-//create replay button
-
-const replay = document.createElement("button");
-    replay.textContent = "Play again?";
-
-//declare winner function and replay option
+function endGame() {
+    
+    if (humanScore === 5 || computerScore === 5) {
+        declareWinner();
+   };
+   };
 
 function declareWinner() {
     if (humanScore > computerScore) {
-        finalResults.textContent = `Game over! Your score: ${humanScore} Computer score: ${computerScore}. You are the winner!`;
-        finalResults.appendChild(replay);
-        replay.addEventListener('click', playGame);
+            roundCount.textContent = "";
+            roundCount.style.height = "125px";
+            winner.textContent = `GAME OVER. YOU WIN!`;
+            winner.style.height = "100px";
+
+            
+            document.body.removeChild(buttonContainer);
+            document.body.removeChild(computerOptions);
+        
+            human.style.height = "100px";
+            humanScoreDisplay.style.height = "100px";
+            computerScoreDisplay.style.height = "100px";
+            computer.style.height = "100px";
+            
+
+            const replay = document.createElement("button");
+                roundCount.appendChild(replay);
+                replay.textContent = "PLAY AGAIN?";
+                replay.style.color = "white";
+                replay.style.padding = "20px";
+                replay.style.fontFamily = "courier";
+                replay.style.fontSize = "28px";
+                replay.style.backgroundColor = "#4F5D75";
+                replay.style.border = "white";
+                replay.style.borderRadius = "10px";
+                replay.addEventListener('mouseover', () => {
+                    replay.style.transform = 'scale(1.1)';
+                })
+                replay.addEventListener('mouseout', () => {
+                    replay.style.transform = '';
+                })
+                replay.addEventListener('click', playGame);
 
     } else {
-        finalResults.textContent = `Game over! Your score: ${humanScore} Computer score: ${computerScore}. Computer wins. Better luck next time!`;
-        finalResults.appendChild(replay);
-        replay.addEventListener('click', playGame);
-}
+        roundCount.textContent = "";
+        roundCount.style.height = "125px";
+        winner.textContent = `GAME OVER. COMPUTER WINS.`;
+        winner.style.height = "100px";
+
+            document.body.removeChild(buttonContainer);
+            document.body.removeChild(computerOptions);
+            
+            human.style.height = "100px";
+            humanScoreDisplay.style.height = "100px";
+            computerScoreDisplay.style.height = "100px";
+            computer.style.height = "100px";
+
+            const replay = document.createElement("button");
+                roundCount.appendChild(replay);
+                replay.textContent = "PLAY AGAIN?";
+                replay.style.color = "white";
+                replay.style.backgroundColor = "#4F5D75";   
+                replay.style.padding = "20px";
+                replay.style.fontFamily = "courier";
+                replay.style.fontSize = "24px";
+                replay.style.border = "white";
+                replay.style.borderRadius = "10px";
+                replay.addEventListener('mouseover', () => {
+                    replay.style.transform = 'scale(1.1)';
+                })
+                replay.addEventListener('mouseout', () => {
+                    replay.style.transform = '';
+                })
+                replay.addEventListener('click', playGame);
 }
 };
+
+function playGame() {
+        rock.addEventListener('click', () => {
+            rock.style.transform = "scale(1.3)";
+            paper.style.transform = "scale(.8)";
+            scissors.style.transform = "scale(.8)";     
+            let computerChoice = getComputerChoice();
+            playRound("ROCK", computerChoice);
+            endGame();
+    });
+
+        paper.addEventListener('click', () => {
+            paper.style.transform = "scale(1.3)";
+            rock.style.transform = "scale(.8)";
+            scissors.style.transform = "scale(.8)";
+            let computerChoice = getComputerChoice();
+            playRound("PAPER", computerChoice);  
+            endGame();   
+        });
+
+        scissors.addEventListener('click', () => {
+            rock.style.transform = "scale(.8)";
+            paper.style.transform = "scale(.8)";
+            scissors.style.transform = "scale(1.3)";
+            let computerChoice = getComputerChoice();
+            playRound("SCISSORS", computerChoice);
+            endGame();
+         });
+        
+        };
 
 playGame();
