@@ -122,6 +122,7 @@ const roundCount = document.createElement("div");
 
     const winner = document.createElement("div");
         document.body.appendChild(winner);
+        winner.textContent = "FIRST TO 5 POINTS WINS."
             winner.style.display = "flex";
             winner.style.justifySelf = "stretch";
             winner.style.justifyContent = "center";
