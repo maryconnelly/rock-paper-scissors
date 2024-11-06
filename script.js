@@ -245,6 +245,7 @@ function playRound(humanChoice, computerChoice) {
 
 } 
 
+
 function endGame() {
     
     if (humanScore === 5 || computerScore === 5) {
@@ -252,25 +253,23 @@ function endGame() {
    };
    };
 
+
 function declareWinner() {
     if (humanScore > computerScore) {
-            roundCount.textContent = "";
-            roundCount.style.height = "125px";
-            winner.textContent = `GAME OVER. YOU WIN!`;
-            winner.style.height = "100px";
-
             
-            document.body.removeChild(buttonContainer);
-            document.body.removeChild(computerOptions);
-        
-            human.style.height = "100px";
-            humanScoreDisplay.style.height = "100px";
-            computerScoreDisplay.style.height = "100px";
-            computer.style.height = "100px";
+        roundCount.textContent = "";
+        roundCount.style.height = "125px";
+        winner.textContent = `GAME OVER. YOU WIN!`;
+        winner.style.height = "100px";
+        document.body.removeChild(buttonContainer);
+        document.body.removeChild(computerOptions);
+        human.style.height = "100px";
+        humanScoreDisplay.style.height = "100px";
+        computerScoreDisplay.style.height = "100px";
+        computer.style.height = "100px";
             
-
-            const replay = document.createElement("button");
-                roundCount.appendChild(replay);
+        const replay = document.createElement("button");
+            roundCount.appendChild(replay);
                 replay.textContent = "PLAY AGAIN?";
                 replay.style.color = "white";
                 replay.style.padding = "20px";
@@ -280,12 +279,14 @@ function declareWinner() {
                 replay.style.border = "white";
                 replay.style.borderRadius = "10px";
                 replay.addEventListener('mouseover', () => {
-                    replay.style.transform = 'scale(1.1)';
-                })
+                    replay.style.transform = "scale(1.1)";
+                });
                 replay.addEventListener('mouseout', () => {
-                    replay.style.transform = '';
+                    replay.style.transform = "";
+                });
+                replay.addEventListener('click', () => {
+                    window.location.reload();
                 })
-                replay.addEventListener('click', playGame);
 
     } else {
         roundCount.textContent = "";
@@ -312,14 +313,18 @@ function declareWinner() {
                 replay.style.border = "white";
                 replay.style.borderRadius = "10px";
                 replay.addEventListener('mouseover', () => {
-                    replay.style.transform = 'scale(1.1)';
-                })
+                    replay.style.transform = "scale(1.1)";
+                });
                 replay.addEventListener('mouseout', () => {
-                    replay.style.transform = '';
+                    replay.style.transform = "";
+                });
+                replay.addEventListener('click', () => {
+                    window.location.reload();
                 })
-                replay.addEventListener('click', playGame);
 }
 };
+
+
 
 function playGame() {
         rock.addEventListener('click', () => {
